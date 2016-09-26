@@ -1,0 +1,280 @@
+﻿<Window x:Class="Ophtalmo.PrintWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Impression - CROPHT"
+        Width="570"
+        Height="850" WindowState="Maximized">
+    <Grid DataContext="{Binding PrintVm, Mode=OneWay, Source={StaticResource Locator}}">
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="6*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+
+        <FlowDocumentReader x:Name="FlowDocReader"
+                            Height="800"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1" Background="White">
+
+            <FlowDocument x:Name="BigFlowDocument" xml:space="preserve"  >
+                <BlockUIContainer>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="5*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="2*" />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition Height="5*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Margin="0,0,0,2"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontFamily="Arial"
+                                   FontSize="12"
+                                   FontWeight="Bold"
+                                   Text="CLINIQUE DU GRAND BASSIN" />
+                        <StackPanel Grid.Row="0"
+                                    Grid.Column="2"
+                                    FlowDirection="RightToLeft"
+                                    Orientation="Horizontal">
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="10"
+                                       Text="{Binding Examen.Moment,
+                                                      StringFormat=\{0:d\}}" />
+                            <TextBlock Margin="0"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontFamily="Arial"
+                                       FontSize="10"
+                                       FontWeight="Bold"
+                                       Text=" Tlemcen, le"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                        <Line Grid.Row="1"
+                              Grid.Column="0"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Top"
+                              Fill="Black"
+                              Stroke="Black"
+                              X2="70" />
+                        <StackPanel Grid.Row="1"
+                                    Grid.Column="0"
+                                    Margin="0,2,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontFamily="Arial"
+                                       FontSize="10"
+                                       Text="Dr. BRIXI Chakib"
+                                       TextWrapping="Wrap" FontWeight="Bold" />
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontFamily="Arial"
+                                       FontSize="10"
+                                       Text="Médecin Ophtalmologiste"
+                                       TextWrapping="Wrap" />
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontFamily="Arial"
+                                       FontSize="10"
+                                       Text="Diplômé de l'université de Kitasato (Japon)"
+                                       TextAlignment="Center"
+                                       TextWrapping="Wrap" />
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontFamily="Arial"
+                                       FontSize="10"
+                                       Text="MALADIES ET CHIRURGIE DES YEUX"
+                                       TextAlignment="Center"
+                                       TextWrapping="Wrap" />
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontFamily="Arial"
+                                       FontSize="10"
+                                       FontWeight="Bold"
+                                       Text="(Phaco - emulsification)"
+                                       TextAlignment="Center"
+                                       TextWrapping="Wrap" />
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontFamily="Arial"
+                                       FontSize="10"
+                                       Text="CHAMP VISUEL AUTOMATISÉ"
+                                       TextAlignment="Center"
+                                       TextWrapping="Wrap" />
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontFamily="Arial"
+                                       FontSize="10"
+                                       Text="ANGIOGRAPHIE NUMIRISÉE"
+                                       TextAlignment="Center"
+                                       TextWrapping="Wrap" />
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontFamily="Arial"
+                                       FontSize="10"
+                                       Text="LASER ARGON - YAG"
+                                       TextAlignment="Center"
+                                       TextWrapping="Wrap" />
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontFamily="Arial"
+                                       FontSize="10"
+                                       Text="OCT"
+                                       TextAlignment="Center"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                        <Grid Grid.Row="1"
+                              Grid.RowSpan="2"
+                              Grid.Column="2"
+                              Margin="0,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                            </Grid.RowDefinitions>
+                            <StackPanel HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
+                                <TextBlock HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Arial"
+                                           FontSize="10"
+                                           FontWeight="Bold"
+                                           Text="Nom:"
+                                           TextWrapping="Wrap" />
+                                <TextBlock Margin="5,0,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           FontSize="10"
+                                           Text="{Binding Examen.Malade.Nom}"
+                                           TextWrapping="Wrap" />
+                            </StackPanel>
+                            <StackPanel Grid.Row="1"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
+                                <TextBlock HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Arial"
+                                           FontSize="10"
+                                           FontWeight="Bold"
+                                           Text="Prénom:"
+                                           TextWrapping="Wrap" />
+                                <TextBlock Margin="5,0,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           FontSize="10"
+                                           Text="{Binding Examen.Malade.Prenom}"
+                                           TextWrapping="Wrap" />
+                            </StackPanel>
+                            <StackPanel Grid.Row="2"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
+                                <TextBlock HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Arial"
+                                           FontSize="10"
+                                           FontWeight="Bold"
+                                           Text="Age:"
+                                           TextWrapping="Wrap" />
+                                <TextBlock Margin="5,0,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           FontSize="10"
+                                           Text="{Binding Examen.Malade.Age}"
+                                           TextWrapping="Wrap" />
+                                <TextBlock Margin="5,0,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           FontSize="10"
+                                           Text="ans"
+                                           TextWrapping="Wrap" />
+                            </StackPanel>
+                            <StackPanel Grid.Row="3"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
+                                <TextBlock HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Arial"
+                                           FontSize="10"
+                                           FontWeight="Bold"
+                                           Text="Médecin traitant:"
+                                           TextWrapping="Wrap" />
+                                <TextBlock Margin="5,0,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           FontSize="10"
+                                           Text="{Binding Examen.Medecin.Nom}"
+                                           TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Grid>
+                        <Line Grid.Row="2"
+                              Grid.Column="0"
+                              Margin="0,2"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Top"
+                              Fill="Black"
+                              Stroke="Black"
+                              X2="70" />
+                        <StackPanel Grid.Row="2" Grid.Column="0">
+                            <TextBlock Margin="0,5,0,0"
+                                       FontFamily="Arial"
+                                       FontSize="10"
+                                       Text="13, Rue les frères Laribi - Tlemcen"
+                                       TextAlignment="Center"
+                                       TextWrapping="Wrap" />
+                      
+                            <TextBlock Margin="0,1,0,0"
+                                       FontFamily="Arial"
+                                       FontSize="10"
+                                       Text="Tel: 043 41 44 02 - Fax: 043 41 44 04"
+                                       TextAlignment="Center"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </BlockUIContainer>
+                <Paragraph FontWeight="Bold" TextAlignment="Center"><Run Text="Compte rendu " /><Run Text="{Binding Examen.Nom}" />
+                </Paragraph>
+                <List x:Name="TheBigList"
+                      BorderBrush="{x:Null}"
+                      Loaded="TheBigList_Loaded"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      ScrollViewer.VerticalScrollBarVisibility="Disabled" />
+                <!--<BlockUIContainer Name="FooterContainer" Margin="0,0,0,0">
+                    <StackPanel   HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                Orientation="Vertical">
+                        <Line VerticalAlignment="Center"
+                              Stroke="Black"
+                              StrokeThickness="2"
+                              X2="500" />
+                        <TextBlock VerticalAlignment="Center"
+                                   FontSize="14"
+                                   FontWeight="Bold"
+                                   Text="EURL Cliique du GRAND BASSIN - 03, Allée des Noyers - TLEMCEN" />
+                        <TextBlock VerticalAlignment="Center" Text="Tél: 043 20 36 62 / 043 20 36 62 65     Fax: 043 20 36 57" />
+                    </StackPanel>
+                </BlockUIContainer>-->
+            </FlowDocument>
+        </FlowDocumentReader>
+
+        <Button x:Name="PrintBtn" Grid.Row="1"
+                Width="150"
+                Height="30"
+                Click="Button_Click"
+                Content="Imprimer" />
+
+    </Grid>
+</Window>
